@@ -13,9 +13,19 @@ do
     --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value="'${instance}'"}]' \
     --query 'Instances[0].InstanceId' \
     --output text )
+   public_ip=$(aws ec2 describe-instances \
+  --instance-ids $instance_id \
+  --query "Reservations[0].Instances[0].PublicIpAddress" \
+  --output text)
+  private_ip=$(aws ec2 describe-instances \
+  --instance-ids $instance_id \
+  --query "Reservations[0].Instances[0].PrivateIpAddress" \
+  --output text)
+  
 
-    private_ip=$(--query 'Reservations[*].Instances[*].PrivateIpAddress')
+
     done
 
 echo "$instance_id"
 echo "$private_ip"
+echo "$public_ip"
