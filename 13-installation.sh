@@ -1,7 +1,9 @@
 #!/bin/bash
 
 LOG_DIR="/var/log/shellscript"
-file_name= "$LOG_DIR/$0.log"
+file= echo "$0"  | cut -d "." -f1
+
+file_name="$LOG_DIR/$file.log"
 
 mkdir -p $LOG_DIR
 
