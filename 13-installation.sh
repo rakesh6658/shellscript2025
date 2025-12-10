@@ -1,8 +1,8 @@
 #!/bin/bash
 
 LOG_DIR="/var/log/shellscript"
-file= echo "$0"  | cut -d "." -f1
-echo "$file"
+file=$(echo "$0"  | cut -d "." -f1)
+echo $file
 
 file_name="$LOG_DIR/$file.log"
 echo "$file_name"
