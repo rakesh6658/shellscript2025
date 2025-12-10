@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOG_DIR="/var/log/shellscript"
-file_name= "$LOG_DIR/installation.log"
+file_name= "$LOG_DIR/$0.log"
 
 mkdir -p $LOG_DIR
 
