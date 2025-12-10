@@ -13,5 +13,9 @@ do
     --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value="'${instance}'"}]' \
     --query 'Instances[0].InstanceId' \
     --output text )
+
+    private_ip=$(--query 'Reservations[*].Instances[*].PrivateIpAddress')
     done
+
 echo "$instance_id"
+echo "$private_ip"
