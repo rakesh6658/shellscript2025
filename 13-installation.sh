@@ -4,6 +4,7 @@ LOG_DIR="/var/log/shellscript"
 file= echo "$0"  | cut -d "." -f1
 
 file_name="$LOG_DIR/$file.log"
+echo "$file_name"
 
 mkdir -p $LOG_DIR
 
