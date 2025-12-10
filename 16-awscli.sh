@@ -6,7 +6,7 @@ sg_id=sg-08c5ef089ab83c3ce
 
 for instance in $@
 do
- instance_id = $( aws ec2 run-instances \
+ instance_id=$( aws ec2 run-instances \
     --image-id $AMI_ID \
     --instance-type t3.micro \
     --security-group-ids $sg_id \
