@@ -26,32 +26,34 @@ do
   then
 
   aws route53 change-resource-record-sets \
-  --hosted-zone-id $HOSTED_ZONE_ID \
-  --change-batch {
-    "Changes": [{
-      "Action": "CREATE",
-      "ResourceRecordSet": {
-        "Name": "${instance}.${domain_name}",
-        "Type": "A",
-        "TTL": 1,
-        "ResourceRecords": [{ "Value": "$public_ip" }]
+  --hosted-zone-id "$HOSTED_ZONE_ID" \
+  --change-batch "{
+    \"Changes\": [{
+      \"Action\": \"CREATE\",
+      \"ResourceRecordSet\": {
+        \"Name\": \"${instance}.${domain_name}\",
+        \"Type\": \"A\",
+        \"TTL\": 1,
+        \"ResourceRecords\": [{ \"Value\": \"${public_ip}\" }]
       }
     }]
-  }
+  }"
+
   else
   aws route53 change-resource-record-sets \
-  --hosted-zone-id $HOSTED_ZONE_ID \
-  --change-batch {
-    "Changes": [{
-      "Action": "CREATE",
-      "ResourceRecordSet": {
-        "Name": "${instance}.${domain_name}",
-        "Type": "A",
-        "TTL": 1,
-        "ResourceRecords": [{ "Value": "$private_ip"}]
+  --hosted-zone-id "$HOSTED_ZONE_ID" \
+  --change-batch "{
+    \"Changes\": [{
+      \"Action\": \"CREATE\",
+      \"ResourceRecordSet\": {
+        \"Name\": \"${instance}.${domain_name}\",
+        \"Type\": \"A\",
+        \"TTL\": 1,
+        \"ResourceRecords\": [{ \"Value\": \"${private_ip}\" }]
       }
     }]
-  }
+  }"
+
   fi
 
 
