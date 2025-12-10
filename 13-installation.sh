@@ -9,19 +9,24 @@ exit 1
 else 
 echo " user is root "
 fi
+validate() {
+    if [ $1 -ne 0 ]
+then
+echo "instalation of $2 failure"
+else
+echo "installation of $2 success"
+fi
+}
 
-dnf remove maven
+dnf list installed $1
 
 if [ $? -ne 0 ]
 then
-echo " git not installed"
-dnf install git -y
-if [ $? -ne 0 ]
-then
-echo "instalation of git failure"
+echo " $1 not installed"
+dnf install $1 -y
+validate $? "$1"
+
 else
-echo "installation of git success"
+echo "$1 installed already"
 fi
-else
-echo "git installed already"
-fi
+
