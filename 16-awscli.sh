@@ -22,36 +22,36 @@ do
   --instance-ids $instance_id \
   --query "Reservations[0].Instances[0].PrivateIpAddress" \
   --output text)
-  if [ $instance -eq frontend ]
+  if [ $instance -eq "frontend" ]
   then
 
   aws route53 change-resource-record-sets \
   --hosted-zone-id $HOSTED_ZONE_ID \
-  --change-batch '{
+  --change-batch {
     "Changes": [{
       "Action": "CREATE",
       "ResourceRecordSet": {
-        "Name": "'${instance}.${domain_name}'",
+        "Name": "${instance}.${domain_name}",
         "Type": "A",
         "TTL": 1,
-        "ResourceRecords": [{ "Value": '"$public_ip"' }]
+        "ResourceRecords": [{ "Value": "$public_ip" }]
       }
     }]
-  }'
+  }
   else
   aws route53 change-resource-record-sets \
   --hosted-zone-id $HOSTED_ZONE_ID \
-  --change-batch '{
+  --change-batch {
     "Changes": [{
       "Action": "CREATE",
       "ResourceRecordSet": {
-        "Name": "'${instance}.${domain_name}'",
+        "Name": "${instance}.${domain_name}",
         "Type": "A",
         "TTL": 1,
-        "ResourceRecords": [{ "Value": '"$private_ip"' }]
+        "ResourceRecords": [{ "Value": "$private_ip"}]
       }
     }]
-  }'
+  }
   fi
 
 
