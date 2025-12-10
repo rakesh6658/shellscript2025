@@ -10,7 +10,7 @@ else
 echo " user is root "
 fi
 
-dnf list installed maven
+dnf remove maven
 
 if [ $? -ne 0 ]
 then
