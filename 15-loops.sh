@@ -38,4 +38,5 @@ validate $? "$package"
 else
 echo "$package installed already"
 fi
+done
 
