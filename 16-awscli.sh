@@ -22,7 +22,7 @@ do
   --instance-ids $instance_id \
   --query "Reservations[0].Instances[0].PrivateIpAddress" \
   --output text)
-  if [ $instance -eq "frontend" ]
+  if [ $instance == "frontend" ]
   then
 
   aws route53 change-resource-record-sets \
