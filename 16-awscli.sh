@@ -1,8 +1,8 @@
 #!/bin/bash
 
 AMI_ID=ami-09c813fb71547fc4f
-sg_id=sg-08c5ef089ab83c3ce
-HOSTED_ZONE_ID=Z01767341CQ3HG2Z9RB0E
+sg_id=sg-09ab53948daadc429
+HOSTED_ZONE_ID=Z0239863CO9I6JC85ISR
 domain_name=joindevops.store
 
 for instance in $@
