@@ -2,4 +2,4 @@
 city=hyderabad
 echo "welcome to $city"
 echo "script id $$"
-source ./. 18-script2.sh
+source /home/ec2-user/shellscript2025 18-script2.sh
