@@ -16,7 +16,7 @@ DAYS=${3:-14}
 
 if [ $# -lt 2 ]
 then
-echo -e "sh script.sh sourcedir destdir days(optional)"
+echo -e "$RED sh script.sh sourcedir destdir days(optional) $NC"
 exit 1
 fi
 
