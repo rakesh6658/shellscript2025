@@ -34,11 +34,13 @@ fi
 FILES=$(find "$SOURCEDIR" -name "*.log" -type f -mtime "+$DAYS" )
 
 echo "$FILES"
-
-if [ ! -z $FILES ]
+while IFS= read -r file
+do
+if [ ! -z $file ]
 then
 timestamp=$(date +%F-%H-%M)
 ZIPFILENAME=$($DESTDIR/app-logs-$timestamp.log)
 echo "$FILES | zip -@ -j $ZIPFILENAME"
 fi
+done <<< $FILES
 
