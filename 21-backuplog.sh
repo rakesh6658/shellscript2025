@@ -30,8 +30,11 @@ then
 echo -e "$RED destdir $DESTDIR does not exist $NC"
 exit 1
 fi 
+
 FILES=$(find $SOURCEDIR -name "*.log" -type f -mtime $DAYS)
+
 echo "$FILES"
+
 if [ ! -z $FILES ]
 then
 timestamp=$(date +%F-%H-%M)
