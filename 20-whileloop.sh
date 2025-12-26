@@ -7,4 +7,4 @@ do
 echo "$count"
 count=$(($count-1))
 done
-echo"ram"
+echo "ram"
