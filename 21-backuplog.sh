@@ -22,11 +22,11 @@ fi
 
 if [ ! -d $SOURCEDIR ]
 then
-echo "$RED sourcedir $SOURCEDIR does not exist $NC"
+echo -e "$RED sourcedir $SOURCEDIR does not exist $NC"
 exit 1
 fi 
 if [ ! -d $DESTDIR ]
 then
-echo "$RED destdir $DESTDIR does not exist $NC"
+echo -e "$RED destdir $DESTDIR does not exist $NC"
 exit 1
 fi 
