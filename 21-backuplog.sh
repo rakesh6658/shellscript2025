@@ -16,10 +16,17 @@ DAYS=${3:-14}
 
 if [ $# -lt 2 ]
 then
-echo -e "$RED sh script.sh sourcedir destdir days(optional) $NC"
+echo -e "$RED sh script.sh sourcedir destdir days(optional) $"
 exit 1
 fi
 
-# if [ ! -d $SOURCEDIR ]
-# then
-# echo "source 
+if [ ! -d $SOURCEDIR ]
+then
+echo "$RED sourcedir $SOURCEDIR does not exist $NC"
+exit 1
+fi 
+if [ ! -d $DESTDIR ]
+then
+echo "$RED destdir $DESTDIR does not exist $NC"
+exit 1
+fi 
