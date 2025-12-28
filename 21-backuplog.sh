@@ -46,6 +46,11 @@ then
 echo -e "archival is $RED failure $NC"
 else
 echo -e "archival is $GREEN success $NC"
+while IFS= read -r filepath
+do
+echo "$filepath"
+rm -rf $filepath
+done <<< $FILES
 fi
 
 fi
