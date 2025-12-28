@@ -41,12 +41,6 @@ then
 timestamp=$(date +%F-%H-%M)
 ZIPFILENAME=$($DESTDIR/app-logs-$timestamp.zip)
 echo "find "$SOURCEDIR" -name "*.log" -type f -mtime "+$DAYS"" | zip -@ -j $ZIPFILENAME"
-if [ ! -f $ZIPFILENAME ]
-then
-echo -e "archival is $RED failure $NC"
-else
-echo -e "archival is $GREEN success $NC"
-fi
 
 fi
 done <<< $FILES
